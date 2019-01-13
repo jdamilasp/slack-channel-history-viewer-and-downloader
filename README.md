@@ -1,2 +1,3 @@
 # slack-channel-history-viewer-and-downloader
-View Public Slack Channel with history given Slack API Token. Channel history download as JSON.
+1. View Public Slack Channel with history given Slack API Token. 
+2. Channel history download as JSON.
