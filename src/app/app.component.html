@@ -1,0 +1,89 @@
+<!-- Header -->
+<nav class="navbar navbar-default header">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Dashboard</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Body -->
+<div class="container">
+  <div class="row">
+
+    <!-- Token and Channel List -->
+    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+
+      <!-- Token Input Area -->
+      <div class="row input-token">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-default">Token</span>
+          </div>
+          <input type="text"
+                 [(ngModel)]="token" class="form-control" aria-label="Token" aria-describedby="inputGroup-sizing-default">
+        </div>
+        <button class="btn btn-primary btn-lg btn-block" (click)="getChannelList()">GET CHANNEL LIST</button>
+      </div>
+
+      <!-- Channel List Area -->
+      <div class="row">
+        <div class="col-12">
+          <div class="channel-list">
+            <div *ngFor="let item of channelArray">
+              <button class="btn btn-info btn-block"
+                      [ngClass]="{'selected-channel':item?.id === selectedChannel?.id}"
+                      (click)=selectChannel(item)> {{item?.name}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Selected Channel -->
+    <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+
+      <!-- Channel Info -->
+      <div class="row">
+        <div class="col-12 selected-channel-info">
+          <p *ngIf="selectedChannel" style="text-align: center;"> Selected Channel : {{selectedChannel?.name }} </p>
+          <p *ngIf="!selectedChannel" style="text-align: center;"> Selected Channel : None </p>
+        </div>
+      </div>
+
+      <!-- Channel History -->
+      <div class="row">
+        <div class="col-12">
+          <div class="channel-history">
+            <div *ngFor="let item of selectedChannelHistory">
+              <p> {{item?.text}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Channel History Download Button -->
+      <div class="row">
+        <div class="col-6">
+          <button class="btn btn-dark btn-block" (click)=generateDownloadJsonUrl()>
+            <span> Make JSON </span>
+          </button>
+        </div>
+        <div class="col-6">
+          <button class="btn btn-dark btn-block" *ngIf="isReadyJson">
+            <a [href]="channelHistoryDownloadUrl" download="{{selectedChannel?.name}}-{{selectedChannel?.id}}-history.json"> Download JSON </a>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  Footer
+</div>
+
+
+

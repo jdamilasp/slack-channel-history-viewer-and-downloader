@@ -1,0 +1,53 @@
+/* Header */
+.header {
+  background-color: rgba(178, 178, 178, 0.39);
+  margin-bottom: 10px;
+}
+
+/* Body */
+.input-token {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.channel-list {
+  text-align: center;
+  height: calc(100vh - 300px);
+  overflow-y: scroll;
+}
+
+.channel-list div {
+  padding: 5px;
+}
+
+.selected-channel {
+  background-color: #28a745;
+}
+
+.selected-channel-info {
+  background-color: #28a745;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.channel-history {
+  text-align: center;
+  height: calc(100vh - 300px);
+  overflow-y: scroll;
+}
+
+.download-btn {
+  position: relative;
+  bottom: 0;
+}
+
+
+/* Footer */
+.footer {
+  background-color: rgba(113, 113, 113, 0.31);
+  height: 50px;
+  width: 100vw;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+}
